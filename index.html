@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="الموقع الشخصي لحازم مصطفى إبراهيم - طالب نظم معلومات ومهتم بتطوير الويب والبرمجة.">
+  <title>حازم مصطفى إبراهيم | الموقع الشخصي</title>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #111c30;
+      --surface-2: #15243b;
+      --border: #273751;
+      --text: #edf3ff;
+      --muted: #aab8ce;
+      --blue: #60a5fa;
+      --blue-strong: #3478d4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1080px, 90%); margin-inline: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 17, 32, .94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-wrap {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--blue);
+      font-weight: 800;
+      font-size: 23px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s;
+    }
+
+    nav a:hover, nav a:focus { color: var(--blue); }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 76px 0;
+      background: radial-gradient(ellipse at top, #1a3154 0%, var(--bg) 68%);
+    }
+
+    .hero-inner { max-width: 760px; }
+
+    .profile-photo {
+      display: block;
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 22px;
+      object-fit: cover;
+      object-position: center 28%;
+      border-radius: 50%;
+      border: 3px solid var(--blue);
+      padding: 4px;
+      background: var(--surface);
+      box-shadow: 0 0 34px #3b82f633;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.35;
+      margin-bottom: 15px;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 26px;
+    }
+
+    .actions, .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 23px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .2s;
+    }
+
+    .btn-primary { background: var(--blue-strong); color: white; }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); }
+    .btn-outline { border-color: var(--border); color: var(--text); }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+    section.content { padding: 72px 0; }
+    section.alt {
+      background: #0e1728;
+      border-block: 1px solid #17243a;
+    }
+
+    .section-head { text-align: center; margin-bottom: 30px; }
+    .section-head h2 { font-size: 28px; margin-bottom: 6px; }
+    .section-head p { color: var(--muted); font-size: 14px; }
+
+    .accent-line {
+      width: 56px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 99px;
+      margin: 12px auto 0;
+    }
+
+    .about-card, .card, .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .about-card {
+      max-width: 820px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .about-card p + p { margin-top: 12px; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 820px;
+      margin: 18px auto 0;
+    }
+
+    .fact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+
+    .fact strong {
+      color: var(--blue);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .fact span { color: var(--muted); font-size: 14px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .card { transition: transform .2s, border-color .2s; }
+    .card:hover { transform: translateY(-4px); border-color: var(--blue); }
+    .card .symbol { font-size: 25px; margin-bottom: 8px; }
+    .card h3 { color: var(--blue); font-size: 17px; margin-bottom: 7px; }
+    .card p { color: var(--muted); font-size: 14px; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 13px;
+    }
+
+    .chip {
+      font-size: 12px;
+      color: #bfdbfe;
+      background: #1b3150;
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+
+    .project-note {
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    .contact-card {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-card p { color: var(--muted); margin-bottom: 18px; }
+
+    footer {
+      text-align: center;
+      padding: 23px 12px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-wrap {
+        padding-block: 13px;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      nav { justify-content: center; gap: 10px 15px; }
+      nav a { font-size: 12px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      section.content { padding: 52px 0; }
+    }
+
+    @media (max-width: 520px) {
+      .grid, .facts { grid-template-columns: 1fr; }
+      .profile-photo { width: 145px; height: 145px; }
+      .hero { min-height: auto; padding: 58px 0; }
+      .about-card, .card, .contact-card { padding: 20px; }
+      .logo { font-size: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a class="logo" href="#home">حازم مصطفى إبراهيم.</a>
+
+      <nav aria-label="القائمة الرئيسية">
+        <a href="#home">الرئيسية</a>
+        <a href="#about">نبذة عني</a>
+        <a href="#skills">مهاراتي</a>
+        <a href="#projects">مشروعاتي</a>
+        <a href="#contact">تواصل معي</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+
+        <!-- الصورة مستضافة خارجيًا على ImgBB -->
+        <img
+          class="profile-photo"
+          src="https://i.ibb.co/pvpT7Ln3/my-photo.jpg"
+          alt="صورة حازم مصطفى إبراهيم"
+          width="300"
+          height="300"
+        >
+
+        <div class="eyebrow">مرحباً بك، أنا</div>
+        <h1>حازم <span>مصطفى إبراهيم</span></h1>
+        <p>
+          طالب نظم معلومات ومهتم بتطوير الواجهات والبرمجة،
+          أسعى لتحويل الأفكار إلى تجارب رقمية مميزة وواجهات مستخدم تفاعلية.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">تصفح مشروعاتي</a>
+          <a class="btn btn-outline" href="#contact">تواصل معي</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>نبذة عني</h2>
+          <p>تعرف على خلفيتي الأكاديمية واهتماماتي المهنية</p>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="about-card">
+          <p>
+            أنا حازم مصطفى إبراهيم، طالب في مجال نظم المعلومات، ولدي شغف كبير
+            بتطوير الواجهات الأمامية للويب وعالم البرمجة بشكل عام. أهتم بتحسين
+            تجربة المستخدم (UX)، وكتابة أكواد نظيفة وقابلة للتطوير لتلبية
+            احتياجات المستخدمين بأفضل شكل ممكن.
+          </p>
+        </div>
+
+        <div class="facts">
+          <div class="fact">
+            <strong>التعليم</strong>
+            <span>كلية نظم المعلومات</span>
+          </div>
+          <div class="fact">
+            <strong>التخصص</strong>
+            <span>تطوير الواجهات والبرمجة</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content alt" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>مهاراتي التقنية</h2>
+          <p>الأدوات والتقنيات التي أستخدمها في تطوير المشاريع</p>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="symbol">🌐</div>
+            <h3>تطوير الويب الأساسي</h3>
+            <p>بناء هيكلية المواقع وتنسيقها باحترافية عالية لضمان التوافق مع مختلف الشاشات.</p>
+            <div class="chips">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="symbol">💻</div>
+            <h3>نظم المعلومات</h3>
+            <p>فهم وتحليل الأنظمة وقواعد البيانات وإدارتها بكفاءة عالية.</p>
+            <div class="chips">
+              <span class="chip">تحليل النظم</span>
+              <span class="chip">قواعد البيانات</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="symbol">🛠️</div>
+            <h3>أدوات التطوير</h3>
+            <p>استخدام أدوات التحكم بالإصدارات وبيئات العمل الحديثة لسرعة وسهولة التطوير.</p>
+            <div class="chips">
+              <span class="chip">Git</span>
+              <span class="chip">GitHub</span>
+              <span class="chip">VS Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>أبرز مشروعاتي</h2>
+          <p>نماذج من الأعمال والتطبيقات التي قمت بتطويرها</p>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="symbol">📱</div>
+            <h3>موقع شخصي متجاوب</h3>
+            <p>تصميم وتطوير موقع شخصي يعكس الهوية البصرية ويدعم الشاشات المختلفة.</p>
+            <div class="chips">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="symbol">📊</div>
+            <h3>نظام إدارة معلومات</h3>
+            <p>مشروع أكاديمي يهدف إلى تنظيم وإدارة بيانات المستخدمين بشكل سلس ومنظم.</p>
+            <div class="chips">
+              <span class="chip">Database</span>
+              <span class="chip">Systems</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="symbol">⚡</div>
+            <h3>تطبيقات ويب تفاعلية</h3>
+            <p>مجموعة من المشاريع المصغرة باستخدام جافاسكريبت لإضافة وظائف تفاعلية للمستخدم.</p>
+            <div class="chips">
+              <span class="chip">JavaScript</span>
+              <span class="chip">DOM</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="project-note">المزيد من المشاريع قيد التطوير وسيتم إضافتها قريباً!</p>
+      </div>
+    </section>
+
+    <section class="content alt" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>تواصل معي</h2>
+          <p>يسعدني تواصلك معي لأي استفسار أو تعاون مهني</p>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="contact-card">
+          <p>يمكنك التواصل معي عبر منصات التواصل الاجتماعي أو إرسال بريد إلكتروني مباشرة:</p>
+
+          <div class="contact-links">
+            <!-- استبدل البريد والرابطين ببياناتك الحقيقية -->
+            <a class="btn btn-primary" href="mailto:example@email.com">البريد الإلكتروني</a>
+            <a class="btn btn-outline" href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    جميع الحقوق محفوظة © <span id="year"></span> حازم مصطفى إبراهيم
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
